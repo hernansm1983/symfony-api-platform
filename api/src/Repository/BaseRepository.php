@@ -4,9 +4,11 @@ declare(strict_types=1);
 
 namespace App\Repository;
 
-use Doctrine\Common\Persistence\ManagerRegistry;
+//use Doctrine\Common\Persistence\ManagerRegistry;
 use Doctrine\DBAL\Connection;
+use Doctrine\Persistence\ManagerRegistry;
 use Doctrine\Persistence\ObjectRepository;
+use Doctrine\ORM\EntityManager;
 
 abstract class BaseRepository
 {
@@ -97,13 +99,14 @@ abstract class BaseRepository
 
 
     /**
-     * @return ObjectManager|EntityManager
+     * @return EntityManager
      */
-    private function getEntityManager()
+    private function getEntityManager(): EntityManager
     {
         $entityManager = $this->managerRegistry->getManager();
 
-        if ($entityManager->isOpen()) {
+        // Verificar si el Entity Manager está abierto
+        if ($entityManager instanceof EntityManager && $entityManager->isOpen()) {
             return $entityManager;     
         }
 

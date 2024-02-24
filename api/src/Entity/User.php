@@ -84,8 +84,8 @@ class User implements UserInterface
      * @return self
      */
     public function setEmail(string $email): self {
-        if (!\filter_var($email, filter:\FILTER_VALIDATE_EMAIL)) {
-            throw new \LogicException(message: 'Invalid Email');
+        if (!\filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            throw new \LogicException('Invalid Email');
         }
         $this->email = $email;
         return $this;
@@ -242,5 +242,13 @@ class User implements UserInterface
     public function eraseCredentials(): void
     {
 
+    }
+
+    /**
+     * @see UserInterface
+     */
+    public function getUserIdentifier(): string
+    {
+        return $this->getEmail();
     }
 }
