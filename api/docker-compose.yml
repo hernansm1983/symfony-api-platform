@@ -29,7 +29,7 @@ services:
     #      XDEBUG_CONFIG: remote_host=host.docker.internal remote_port=9005 # MacOS users
     volumes:
       - ./:/appdata/www
-      - ./docker/php/xdebug-linux.ini:/usr/local/etc/php/conf.d/xdebug.ini
+      - ./docker/php/xdebug.ini:/usr/local/etc/php/conf.d/xdebug.ini
       #      - ./docker/php/xdebug-macos.ini:/usr/local/etc/php/conf.d/xdebug.ini
       - ~/.ssh/id_rsa:/home/appuser/.ssh/id_rsa
     depends_on:
@@ -67,6 +67,17 @@ services:
       # You may use a bind-mounted host directory instead, so that it is harder to accidentally remove the volume and lose all your data!
       # - ./docker/db/data:/var/lib/postgresql/data:rw
 ###< doctrine/doctrine-bundle ###
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: symfony-api-platform-phpmyadmin
+    environment:
+      PMA_HOST: symfony-api-platform-db # Nombre del servicio de MySQL/PostgreSQL en Docker Compose
+      PMA_PORT: 3306 # Puerto de MySQL/PostgreSQL
+    ports:
+      - "8080:80"
+    networks:
+      - symfony-api-platform-network
 
 volumes:
 

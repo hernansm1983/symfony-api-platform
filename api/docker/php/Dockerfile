@@ -19,6 +19,9 @@ RUN apt-get update \
     && pecl install xdebug-3.1.1 amqp \
     && docker-php-ext-enable --ini-name 05-opcache.ini opcache amqp xdebug
 
+# Copia la configuración de Xdebug
+COPY ./xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
+
 RUN curl --insecure https://getcomposer.org/composer.phar -o /usr/bin/composer && chmod +x /usr/bin/composer
 RUN composer self-update
 
