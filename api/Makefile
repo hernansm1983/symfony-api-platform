@@ -53,5 +53,5 @@ code-style: ## Runs php-cs to fix code styling following Symfony rules
 
 generate-ssh-keys: ## Generates SSH keys for the JWT library
 	U_ID=${UID} docker exec -it --user ${UID} ${DOCKER_BE} mkdir -p config/jwt
-	U_ID=${UID} docker exec -it --user ${UID} ${DOCKER_BE} openssl genrsa -passout pass:767b453a97ac019714eb7ccbce781d16 -out config/jwt/private.pem -aes256 4096
-	U_ID=${UID} docker exec -it --user ${UID} ${DOCKER_BE} openssl rsa -pubout -passin pass:767b453a97ac019714eb7ccbce781d16 -in config/jwt/private.pem -out config/jwt/public.pem
+	U_ID=${UID} docker exec -it --user ${UID} ${DOCKER_BE} openssl genrsa -passout pass:929b617a1532ffc9dd83434f453672e5ba75a5eb7ccb8464db4d6d9653caa831 -out config/jwt/private.pem -aes256 4096
+	U_ID=${UID} docker exec -it --user ${UID} ${DOCKER_BE} openssl rsa -pubout -passin pass:929b617a1532ffc9dd83434f453672e5ba75a5eb7ccb8464db4d6d9653caa831 -in config/jwt/private.pem -out config/jwt/public.pem
