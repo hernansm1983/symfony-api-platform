@@ -1,0 +1,24 @@
+parameters:
+
+services:
+    _defaults:
+        autowire: true      # Automatically injects dependencies in your services.
+        autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+
+    App\:
+        resource: '../src/*'
+        exclude:
+            - '../src/DependencyInjection/'
+            - '../src/Entity/'
+            - '../src/Kernel.php'
+
+    App\Api\:
+        resource: '../src/Api'
+        tags: ['controller.service_arguments']
+
+    App\Api\Listener\JsonExceptionResponseTransformerListener:
+        tags:
+            - { name: kernel.event_listener, event: kernel.exception, method: onKernelException, priority: 100 }
+            
+    # add more service definitions when explicit configuration is needed
+    # please note that last definitions always *replace* previous ones
