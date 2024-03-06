@@ -7,7 +7,6 @@ namespace App\Entity;
 use DateTime;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Uid\Uuid;
-use Symfony\Component\Uid\UuidV4;
 
 class User implements UserInterface
 {

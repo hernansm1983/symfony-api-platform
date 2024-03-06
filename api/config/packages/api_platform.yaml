@@ -1,6 +1,6 @@
 api_platform:
     mapping:
-        paths: 
+        paths:
             - '%kernel.project_dir%/config/api_platform/resources'
     patch_formats:
         json: ['application/merge-patch+json']
@@ -10,6 +10,8 @@ api_platform:
             apiKey:
                 name: Authorization
                 type: header
-    title: Symfony API platform
+    enable_swagger_ui: true
+    enable_re_doc: true
+    title: Symfony API Platform
     version: 1.0
     show_webby: true

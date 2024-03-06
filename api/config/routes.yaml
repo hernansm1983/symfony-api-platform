@@ -1,3 +1,4 @@
-index:
-    path: /
-    controller: App\Controller\DefaultController::index
+api_users_register:
+    path: /api/v1/users/register
+    controller: 'App\Api\Action\User\Register'
+    methods: ['POST']
