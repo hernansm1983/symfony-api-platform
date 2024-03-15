@@ -6,7 +6,7 @@ namespace App\Exception\User;
 
 use Symfony\Component\HttpKernel\Exception\ConflictHttpException;
 
-class UserAlreadyExistsException extends ConflictHttpException{
+class UserAlreadyExistException extends ConflictHttpException{
 
     private const MESSAGE = "User with email %s already exist";
 
