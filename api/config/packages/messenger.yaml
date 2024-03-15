@@ -14,8 +14,8 @@ framework:
                         name: '%env(string:MESSENGER_EXCHANGE)%'
                         type: direct
                     queues:
-                        user_queues:
-                            binding_keys: [user_queues]
+                        user_queue:
+                            binding_keys: [user_queue]
                     auto_setup: true
         routing:
             'App\Messenger\Message\UserRegisteredMessage': amqp_user

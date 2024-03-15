@@ -1,5 +1,6 @@
 {
     "name": "hernansm83/symfony-api-platform",
+    "version": "1.0.0",
     "description": "Symfony API Platform",
     "type": "project",
     "license": "proprietary",
